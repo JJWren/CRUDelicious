@@ -7,14 +7,10 @@
     <div class="flex-row d-flex justify-content-between">
         <div class="flex-column">
             <h4 class="border-bottom pb-3">Check out some recent Dishes!</h4>
-            <ul class="list-unstyled">
-                @* @{
-                    foreach (var dish in ViewBag.AllDishes)
-                    {
-                    <li>@dish.Name by @dish.Chef</li>
-                    }
-                    } *@
-            </ul>
+            @foreach (var dish in ViewBag.AllDishes)
+            {
+                <p class="text-left"><a href="ViewDish/@dish.DishID">@dish.Name</a> by @dish.Chef</p>
+            }
         </div>
         <a asp-controller="Home" asp-action="NewDish"><u>Add a Dish</u></a>
     </div>

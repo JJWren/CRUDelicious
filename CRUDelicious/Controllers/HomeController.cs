@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using CRUDelicious.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CRUDelicious.Controllers
 {
@@ -22,7 +23,6 @@ namespace CRUDelicious.Controllers
         public IActionResult Index()
         {
             List<Dish> AllDishes = _context.Dishes.OrderByDescending(dish => dish.Name).ToList();
-
             return View();
         }
 
@@ -32,7 +32,7 @@ namespace CRUDelicious.Controllers
             return View();
         }
 
-        [HttpPost("/add")]
+        [HttpPost("AddDish")]
         public IActionResult AddDish(Dish NewDish)
         {
             if (ModelState.IsValid)
