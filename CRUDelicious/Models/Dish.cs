@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CRUDelicious.Models
@@ -7,11 +8,24 @@ namespace CRUDelicious.Models
     {
         [Key]
         public int DishId { get; set; }
+
+        [Required]
         public string Name { get; set; }
-        public string Chef { get; set; }
+
+        [Required]
+        public string Chef { get; set; }
+
+        [Required]
+        [Range(0, 6)]
         public int Tastiness { get; set; }
+
+        [Required]
+        [GreaterThanZero]
         public int Calories { get; set; }
-        public string Description { get; set; }
+
+        [Required]
+        public string Description { get; set; }
+
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }

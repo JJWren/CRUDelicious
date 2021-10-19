@@ -1,0 +1,51 @@
+@model Dish;
+
+@{
+    ViewData["Title"] = "Add Dish";
+}
+
+<div class="text-center d-flex flex-column justify-content-center pb-4">
+    <h1 class="display-4">Add a New Dish!</h1>
+    <div class="flex-row d-flex justify-content-start pb-5">
+        <a asp-controller="Home" asp-action="Index"><u>Home</u></a>
+    </div>
+    <form class="form flex-row border shadow rounded pt-3 px-2 d-flex justify-content-between" action="AddDish"
+        method="post">
+        <div class="flex-column col-5 form-group ">
+            <label for="Chef">Chef's Name:</label>
+            <input type="text" class="form-control mb-3" name="Chef" id="Chef" asp-for="Chef"
+                placeholder="Example: Gordon Ramsay">
+            <span asp-validation-for="Chef" class="text-danger"></span>
+
+            <label for="Name">Name of Dish:</label>
+            <input type="text" class="form-control mb-3" name="Name" asp-for="Name"
+                placeholder="Example: Butter Garlic Grilled Steak">
+            <span asp-validation-for="Name" class="text-danger"></span>
+
+            <label for="Calories"># of Calories:</label>
+            <input type="text" class="form-control mb-3" name="Calories" name="Calories" asp-for="Calories"
+                placeholder="Example: 450">
+            <span asp-validation-for="Calories" class="text-danger"></span>
+        </div>
+        <div class="flex-column col-2 form-group ">
+            <label for="Tastiness">Tastiness:</label>
+            <select class="form-control mb-3" name="Tastiness" asp-for="Tastiness">
+                @foreach (int value in Enumerable.Range(1, 5))
+                {
+                    <option>@value</option>
+                }
+            </select>
+            <span asp-validation-for="Tastiness" class="text-danger"></span>
+        </div>
+        <div class="flex-column col-5 form-group ">
+            <label for="Description">Description:</label>
+            <textarea type="text" class="form-control mb-3" name="Description" name="Description" asp-for="Description"
+                rows="5" placeholder="Please enter something vivid!"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+
+            <div class="d-flex justify-content-start">
+                <button type="submit" class="btn btn-warning shadow px-5">Add Dish</button>
+            </div>
+        </div>
+    </form>
+</div>

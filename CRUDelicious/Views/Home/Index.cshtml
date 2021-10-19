@@ -2,7 +2,20 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center d-flex flex-column justify-content-center pb-4">
+    <h1 class="display-4">Welcome to CRUDelicious</h1>
+    <div class="flex-row d-flex justify-content-between">
+        <div class="flex-column">
+            <h4 class="border-bottom pb-3">Check out some recent Dishes!</h4>
+            <ul class="list-unstyled">
+                @* @{
+                    foreach (var dish in ViewBag.AllDishes)
+                    {
+                    <li>@dish.Name by @dish.Chef</li>
+                    }
+                    } *@
+            </ul>
+        </div>
+        <a asp-controller="Home" asp-action="NewDish"><u>Add a Dish</u></a>
+    </div>
 </div>

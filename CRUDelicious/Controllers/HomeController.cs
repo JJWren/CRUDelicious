@@ -17,21 +17,34 @@ namespace CRUDelicious.Controllers
         {
             _context = context;
         }
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
 
         [HttpGet("")]
         public IActionResult Index()
         {
-            List<Dish> AllDishes = _context.Dishes.ToList();
+            List<Dish> AllDishes = _context.Dishes.OrderByDescending(dish => dish.Name).ToList();
 
             return View();
         }
 
+        [HttpGet("/new")]
+        public IActionResult NewDish()
+        {
+            return View();
+        }
+
+        [HttpPost("/add")]
+        public IActionResult AddDish(Dish NewDish)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(NewDish);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View("NewDish");
+        }
+
+        [HttpGet("Privacy")]
         public IActionResult Privacy()
         {
             return View();

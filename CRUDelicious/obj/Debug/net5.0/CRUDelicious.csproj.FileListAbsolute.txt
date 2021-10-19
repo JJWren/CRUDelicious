@@ -48,3 +48,4 @@ C:\GitHub\CRUDelicious\CRUDelicious\obj\Debug\net5.0\CRUDelicious.dll
 C:\GitHub\CRUDelicious\CRUDelicious\obj\Debug\net5.0\ref\CRUDelicious.dll
 C:\GitHub\CRUDelicious\CRUDelicious\obj\Debug\net5.0\CRUDelicious.pdb
 C:\GitHub\CRUDelicious\CRUDelicious\obj\Debug\net5.0\CRUDelicious.genruntimeconfig.cache
+C:\GitHub\CRUDelicious\CRUDelicious\obj\Debug\net5.0\Razor\Views\Home\NewDish.cshtml.g.cs
