@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using CRUDelicious.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CRUDelicious
 {
@@ -22,6 +24,7 @@ namespace CRUDelicious
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<MyContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));
             services.AddControllersWithViews();
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }

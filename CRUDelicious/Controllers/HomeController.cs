@@ -11,6 +11,12 @@ namespace CRUDelicious.Controllers
 {
     public class HomeController : Controller
     {
+        private MyContext _context;
+
+        public HomeController(MyContext context)
+        {
+            _context = context;
+        }
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -18,8 +24,11 @@ namespace CRUDelicious.Controllers
             _logger = logger;
         }
 
+        [HttpGet("")]
         public IActionResult Index()
         {
+            List<Dish> AllDishes = _context.Dishes.ToList();
+
             return View();
         }
 
