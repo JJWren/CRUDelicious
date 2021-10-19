@@ -1,7 +1,9 @@
 # CRUDelicious
 ## What is it?
- [] Familiarization with EntityP
+ [] Familiarization with Entity
+ 
  [] Practice with table/model
+ 
  [] CRUD app in EF
 
 ### Wireframe
